@@ -1,0 +1,25 @@
+---
+layout: default
+title: Home
+---
+<section class="hero">
+  <p class="eyebrow">Personal notes archive</p>
+  <h1>Niche little things, things learned, and whatever keeps sticking.</h1>
+  <p class="hero-copy">
+    A small, text-first place for notes, fragments, references, and thoughts worth keeping.
+  </p>
+</section>
+
+<section class="home-section">
+  <div class="section-heading">
+    <h2>Latest writing</h2>
+    <a href="{{ '/archive/' | relative_url }}">View archive</a>
+  </div>
+
+  <div class="post-list">
+    {% assign limited_posts = site.posts | slice: 0, site.home_post_limit %}
+    {% for post in limited_posts %}
+      {% include post-list-item.html post=post %}
+    {% endfor %}
+  </div>
+</section>
