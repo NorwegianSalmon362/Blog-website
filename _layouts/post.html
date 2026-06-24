@@ -1,0 +1,36 @@
+---
+layout: default
+---
+{% assign words = content | number_of_words %}
+{% assign reading_time = words | divided_by: 180 %}
+{% if reading_time < 1 %}
+  {% assign reading_time = 1 %}
+{% endif %}
+
+<article class="post">
+  <header class="post-header">
+    <p class="eyebrow">Post</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="lede">{{ page.description }}</p>
+    {% endif %}
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+      <span>{{ reading_time }} min read</span>
+      {% if page.updated %}
+        <span>Updated {{ page.updated | date: "%-d %B %Y" }}</span>
+      {% endif %}
+    </div>
+    {% if page.tags and page.tags.size > 0 %}
+      <ul class="tag-list" aria-label="Tags">
+        {% for tag in page.tags %}
+          <li><a href="{{ '/tags/#' | append: tag | slugify | relative_url }}">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>
