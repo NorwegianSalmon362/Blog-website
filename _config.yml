@@ -1,0 +1,46 @@
+title: Pixel Factory
+description: Notes, fragments, things learned, and small obsessions.
+url: ""
+baseurl: ""
+lang: en
+timezone: Australia/Melbourne
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+permalink: /:title/
+excerpt_separator: "<!--more-->"
+
+plugins:
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+navigation:
+  - title: Home
+    url: /
+  - title: Archive
+    url: /archive/
+  - title: Tags
+    url: /tags/
+  - title: About
+    url: /about/
+
+home_post_limit: 8
+
+exclude:
+  - README.md
