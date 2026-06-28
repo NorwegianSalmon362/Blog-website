@@ -18,7 +18,8 @@
   {% if post.tags and post.tags.size > 0 %}
     <ul class="tag-list" aria-label="Tags">
       {% for tag in post.tags %}
-        <li><a href="{{ '/tags/#' | append: tag | slugify | relative_url }}">{{ tag }}</a></li>
+        {% assign tag_slug = tag | slugify %}
+        <li><a href="{{ '/tags/#' | append: tag_slug | relative_url }}">{{ tag }}</a></li>
       {% endfor %}
     </ul>
   {% endif %}
