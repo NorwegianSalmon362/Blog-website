@@ -1,7 +1,7 @@
 title: Pixel Factory
 description: Notes, fragments, things learned, and small obsessions.
-url: ""
-baseurl: ""
+url: "https://norwegiansalmon362.github.io"
+baseurl: "/Blog-website"
 lang: en
 timezone: Australia/Melbourne
 
@@ -44,3 +44,8 @@ home_post_limit: 8
 
 exclude:
   - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - vendor
+  - vendor/bundle
