@@ -1,4 +1,4 @@
-# Pixel Factory
+# Blog website
 
 A text-first personal notes blog built for native GitHub Pages with Jekyll.
 
