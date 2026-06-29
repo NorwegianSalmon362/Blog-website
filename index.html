@@ -2,24 +2,126 @@
 layout: default
 title: Home
 ---
+<style>
+  .thought-space {
+    width: min(100%, var(--max-width));
+    display: grid;
+    gap: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .expand-panel {
+    border-top: 1px solid var(--line);
+    padding: 1rem 0 0.95rem;
+  }
+
+  .expand-panel summary {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    color: var(--ink);
+    font-family: var(--ui-font);
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    list-style: none;
+    text-transform: uppercase;
+  }
+
+  .expand-panel summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .expand-panel summary::before {
+    content: "+";
+    flex: 0 0 auto;
+    width: 1.4rem;
+    color: var(--accent);
+    font-family: var(--serif-font);
+    font-size: 1.45rem;
+    line-height: 1;
+  }
+
+  .expand-panel[open] summary::before {
+    content: "-";
+  }
+
+  .expand-panel summary span:first-child {
+    flex: 1;
+  }
+
+  .expand-hint {
+    color: var(--muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+  }
+
+  .expand-panel[open] .expand-hint {
+    color: var(--accent-soft);
+  }
+
+  .expand-content {
+    padding: 1rem 0 0 2.4rem;
+  }
+
+  @media (max-width: 720px) {
+    .expand-panel summary {
+      align-items: flex-start;
+    }
+
+    .expand-content {
+      padding-left: 0;
+    }
+  }
+</style>
+
 <section class="hero">
-  <p class="eyebrow">Personal notes archive</p>
-  <h1>Niche little things, things learned, and whatever keeps sticking.</h1>
+  <h1>Welcome to Pixel Factory</h1>
   <p class="hero-copy">
-    A small, text-first place for notes, fragments, references, and thoughts worth keeping.
+    A short note on what belongs here and why this site exists.
   </p>
 </section>
 
-<section class="home-section">
-  <div class="section-heading">
-    <h2>Latest writing</h2>
-    <a href="{{ '/archive/' | relative_url }}">View archive</a>
-  </div>
+<section class="thought-space" aria-label="Expandable notes">
+  <details class="expand-panel" open>
+    <summary>
+      <span>In-depth thinking</span>
+      <span class="expand-hint">expand</span>
+    </summary>
+    <div class="expand-content prose">
+      <p>
+        Use this space for the longer version of what you are thinking about:
+        the context, the messy parts, what you are trying to understand, and
+        what still feels unresolved.
+      </p>
+    </div>
+  </details>
 
-  <div class="post-list">
-    {% assign limited_posts = site.posts | slice: 0, site.home_post_limit %}
-    {% for post in limited_posts %}
-      {% include post-list-item.html post=post %}
-    {% endfor %}
-  </div>
+  <details class="expand-panel">
+    <summary>
+      <span>Links</span>
+      <span class="expand-hint">expand</span>
+    </summary>
+    <div class="expand-content prose">
+      <ul>
+        <li><a href="#">Add a useful reference link here</a></li>
+        <li><a href="#">Add another source, rabbit hole, or note</a></li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="expand-panel">
+    <summary>
+      <span>Screenshots</span>
+      <span class="expand-hint">expand</span>
+    </summary>
+    <div class="expand-content prose">
+      <p>
+        Add images with Markdown or HTML when you want to keep visual evidence,
+        examples, UI references, or anything else worth returning to.
+      </p>
+    </div>
+  </details>
 </section>
