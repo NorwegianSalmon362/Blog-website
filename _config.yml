@@ -33,10 +33,6 @@ defaults:
 navigation:
   - title: Home
     url: /
-  - title: Archive
-    url: /archive/
-  - title: Tags
-    url: /tags/
   - title: About
     url: /about/
 
